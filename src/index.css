@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  :root {
+    /* Updated to royal theme with purple, gold, and sophisticated grays */
+    --background: 243, 244, 246; /* Light Gray for background */
+    --foreground: 0, 0%, 20%; /* Dark Charcoal for text */
+
+    --card: 0, 0%, 100%; /* White for cards */
+    --card-foreground: 0, 0%, 20%; /* Dark text for card content */
+
+    --popover: 0, 0%, 100%; /* White for popovers */
+    --popover-foreground: 0, 0%, 20%; /* Dark text for popover content */
+
+    --primary: 258, 45%, 40%; /* Royal Purple for primary actions */
+    --primary-foreground: 0, 0%, 100%; /* White text on primary color */
+
+    --secondary: 45, 85%, 52%; /* Gold for accents */
+    --secondary-foreground: 0, 0%, 20%; /* Dark text on gold */
+
+    --muted: 229, 14%, 93%; /* Muted Gray for less prominent elements */
+    --muted-foreground: 0, 0%, 20%; /* Dark text for muted elements */
+
+    --accent: 45, 85%, 52%; /* Gold for highlights and interactive elements */
+    --accent-foreground: 0, 0%, 20%; /* Dark text on accent color */
+
+    --destructive: 354, 70%, 54%; /* Red for alerts */
+    --destructive-foreground: 0, 0%, 100%; /* White text on destructive actions */
+
+    --border: 220, 13%, 82%; /* Light Gray for borders */
+    --input: 0, 0%, 100%; /* White for input fields */
+    --ring: 258, 45%, 40%; /* Royal Purple for focus rings */
+
+    /* Added chart-specific tokens for consistent data visualization */
+    --chart-1: 258, 45%, 40%; /* Royal Purple for charts */
+    --chart-2: 45, 85%, 52%; /* Gold for chart elements */
+    --chart-3: 354, 70%, 54%; /* Red for alert metrics */
+    --chart-4: 217, 91%, 60%; /* Blue for additional metrics */
+    --chart-5: 142, 71%, 45%; /* Green for positive performance */
+
+    /* Sidebar-specific variables for royal theme */
+    --sidebar-background: 258, 45%, 12%; /* Dark purple sidebar to match royal theme */
+    --sidebar-foreground: 0, 0%, 95%; /* Light text on dark sidebar */
+    --sidebar-primary: 258, 45%, 40%; /* Royal purple for sidebar primary */
+    --sidebar-primary-foreground: 0, 0%, 98%; /* White text on royal purple */
+    --sidebar-accent: 45, 85%, 52%; /* Gold for sidebar accent */
+    --sidebar-accent-foreground: 0, 0%, 20%; /* Dark text on gold */
+    --sidebar-border: 258, 45%, 20%; /* Dark purple border */
+    --sidebar-ring: 258, 45%, 55%; /* Royal purple focus ring */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 258, 45%, 8%; /* Dark Purple for background */
+    --foreground: 0, 0%, 95%; /* Light text */
+
+    --card: 258, 45%, 12%; /* Dark Purple for cards */
+    --card-foreground: 0, 0%, 95%; /* Light text for card content */
+
+    --popover: 258, 45%, 12%; /* Dark Purple for popovers */
+    --popover-foreground: 0, 0%, 95%; /* Light text for popover content */
+
+    --primary: 258, 45%, 55%; /* Lighter Royal Purple for primary actions */
+    --primary-foreground: 0, 0%, 8%; /* Dark text on primary color */
+
+    --secondary: 45, 85%, 60%; /* Brighter Gold for accents */
+    --secondary-foreground: 0, 0%, 8%; /* Dark text on gold */
+
+    --muted: 258, 45%, 15%; /* Muted Dark Purple */
+    --muted-foreground: 0, 0%, 70%; /* Light muted text */
+
+    --accent: 45, 85%, 60%; /* Brighter Gold for highlights */
+    --accent-foreground: 0, 0%, 8%; /* Dark text on accent color */
+
+    --destructive: 354, 70%, 60%; /* Brighter Red for alerts */
+    --destructive-foreground: 0, 0%, 95%; /* Light text on destructive actions */
+
+    --border: 258, 45%, 20%; /* Dark Purple for borders */
+    --input: 258, 45%, 15%; /* Dark Purple for input fields */
+    --ring: 258, 45%, 55%; /* Lighter Royal Purple for focus rings */
+
+    --chart-1: 258, 45%, 55%; /* Lighter Royal Purple for charts */
+    --chart-2: 45, 85%, 60%; /* Brighter Gold for chart elements */
+    --chart-3: 354, 70%, 60%; /* Brighter Red for alert metrics */
+    --chart-4: 217, 91%, 70%; /* Brighter Blue for additional metrics */
+    --chart-5: 142, 71%, 55%; /* Brighter Green for positive performance */
+
+    /* Dark mode sidebar variables for royal theme */
+    --sidebar-background: 258, 45%, 8%; /* Darker purple for dark mode sidebar */
+    --sidebar-foreground: 0, 0%, 95%; /* Light text */
+    --sidebar-primary: 258, 45%, 55%; /* Lighter purple for dark mode */
+    --sidebar-primary-foreground: 0, 0%, 8%; /* Dark text on light purple */
+    --sidebar-accent: 45, 85%, 60%; /* Brighter gold for dark mode */
+    --sidebar-accent-foreground: 0, 0%, 8%; /* Dark text on bright gold */
+    --sidebar-border: 258, 45%, 15%; /* Dark purple border */
+    --sidebar-ring: 258, 45%, 60%; /* Bright purple focus ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom animations for loading states and smooth transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Added custom scrollbar styling for royal theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Added overscroll behavior fixes to prevent yellow background */
+@layer base {
+  html {
+    @apply bg-background;
+    overscroll-behavior: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior: none;
+    /* Prevent any yellow background during overscroll */
+    background-attachment: fixed;
+  }
+
+  /* Ensure main container also has proper background */
+  #__next,
+  main {
+    @apply bg-background;
+    min-height: 100vh;
+  }
+}
