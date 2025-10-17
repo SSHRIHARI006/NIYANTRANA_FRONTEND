@@ -12,7 +12,7 @@ export default function StablingGeometry() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch('http://127.0.0.1:4001/api/get_stabling_geometry')
+      const res = await fetch('https://niyantrana-backend-ss4o.onrender.com/api/get_stabling_geometry')
       const data = await res.json()
       if (!res.ok) {
         throw new Error(data.error || 'Failed to fetch stabling geometry')

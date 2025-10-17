@@ -35,7 +35,7 @@ const AddTrainWithTypedCsvUpload = () => {
 
   const sendTrain = async (train) => {
     try {
-      const response = await fetch("http://127.0.0.1:4001/api/addtrain", {
+      const response = await fetch("https://niyantrana-backend-ss4o.onrender.com/api/addtrain", {
         // Replace with your API URL
         method: "POST",
         headers: {
@@ -178,7 +178,7 @@ export default function AddTrain() {
       branding_expiry_date: form.has_branding ? form.branding_expiry_date : null,
     }
 
-    fetch("http://127.0.0.1:4001/api/addtrain", {
+    fetch("https://niyantrana-backend-ss4o.onrender.com/api/addtrain", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

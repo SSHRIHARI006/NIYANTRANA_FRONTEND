@@ -22,7 +22,7 @@ export default function AssignService() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:4001/api/get_trains", { method: "GET" })
+        const response = await fetch("https://niyantrana-backend-ss4o.onrender.com/api/get_trains", { method: "GET" })
         const data = await response.json()
         setTrainData(data)
       } catch (err) {
@@ -37,7 +37,7 @@ export default function AssignService() {
   }, [])
 
   const assign = () => {
-    fetch("http://127.0.0.1:4001/api/get_current_model_assignment")
+    fetch("https://niyantrana-backend-ss4o.onrender.com/api/get_current_model_assignment")
       .then((res) => res.json())
       .then(setTrainData)
   }
@@ -48,7 +48,7 @@ export default function AssignService() {
     const promises = trainData.map((x) => {
       const train_id = x['train_id']
       const statuss = x['status']
-      return fetch('http://127.0.0.1:4001/api/update_status', {
+      return fetch('https://niyantrana-backend-ss4o.onrender.com/api/update_status', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

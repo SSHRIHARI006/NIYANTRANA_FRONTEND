@@ -16,7 +16,7 @@ export default function TrainListPage() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:4001/api/get_trains", { method: "GET" })
+        const response = await fetch("https://niyantrana-backend-ss4o.onrender.com/api/get_trains", { method: "GET" })
         const data = await response.json()
         setTrainData(data)
       } catch (err) {
@@ -36,7 +36,7 @@ export default function TrainListPage() {
       status: "UNASSIGNED",
     }))
     setTrainData(updatedData)
-    fetch("http://127.0.0.1:4001/api/resetstatus")
+    fetch("https://niyantrana-backend-ss4o.onrender.com/api/resetstatus")
   }
 
   if (isLoading) {
